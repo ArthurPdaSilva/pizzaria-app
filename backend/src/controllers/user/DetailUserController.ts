@@ -6,7 +6,6 @@ class DetailUserController {
         const detailUserService = new DetailUserService();
         const userId = req.userId;
         const user = await detailUserService.execute(userId);
-        console.log("Penisss: ", user)
         return res.json(user);
     }
 }
