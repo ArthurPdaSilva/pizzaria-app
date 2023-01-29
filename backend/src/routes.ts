@@ -15,6 +15,7 @@ import { ListProductController } from './controllers/product/ListProductControll
 import { CreateOrderController } from './controllers/order/CreateOrderController';
 import { RemoveOrderController } from './controllers/order/RemoveOrderController';
 import { AddItemController } from './controllers/order/AddItemController';
+import { RemoveItemController } from './controllers/order/RemoveItemController';
 
 const router = Router();
 
@@ -38,5 +39,6 @@ router.get('/category/product', isAuth, new ListProductController().handle)
 router.post('/order', isAuth, new CreateOrderController().handle)
 router.delete('/order', isAuth, new RemoveOrderController().handle)
 router.post('/order/item', isAuth, new AddItemController().handle)
+router.delete('/order/item', isAuth, new RemoveItemController().handle)
 
 export { router }; 
