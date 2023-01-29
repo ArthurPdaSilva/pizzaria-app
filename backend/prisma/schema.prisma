@@ -61,7 +61,7 @@ model Order {
 
 model Item {
   id         String    @id @default(uuid())
-  amout      Int
+  amount     Int
   order      Order?    @relation(fields: [order_id], references: [id])
   order_id   String?
   product    Product?  @relation(fields: [product_id], references: [id])
