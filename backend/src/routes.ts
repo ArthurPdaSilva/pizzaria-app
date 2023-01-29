@@ -18,6 +18,8 @@ import { AddItemController } from './controllers/order/AddItemController';
 import { RemoveItemController } from './controllers/order/RemoveItemController';
 import { SendOrderController } from './controllers/order/SendOrderController';
 import { ListOrdersController } from './controllers/order/ListOrdersController';
+import { DetailOrderController } from './controllers/order/DetailOrderController';
+import { FinishOrderController } from './controllers/order/FinishOrderController';
 
 const router = Router();
 
@@ -44,5 +46,7 @@ router.post('/order/item', isAuth, new AddItemController().handle)
 router.delete('/order/item', isAuth, new RemoveItemController().handle)
 router.put('/order/send', isAuth, new SendOrderController().handle)
 router.get('/orders', isAuth, new ListOrdersController().handle)
+router.get('/order/detail', isAuth, new DetailOrderController().handle)
+router.put('/order/finish', isAuth, new FinishOrderController().handle)
 
 export { router }; 
