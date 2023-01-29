@@ -1,3 +1,4 @@
+import prismaClient from "../../prisma"
 
 interface ProductRequest {
     name: string,
@@ -9,7 +10,17 @@ interface ProductRequest {
 
 class CreateProductService {
     async execute({name, price, description, banner, categoryId}: ProductRequest) {
-        return {ok: true}
+        const product = await prismaClient.product.create({
+            data: {
+                name,
+                price,
+                description,
+                banner,
+                category_id: categoryId
+            }
+        })
+
+        return product
     }
 }
 
