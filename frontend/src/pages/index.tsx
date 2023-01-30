@@ -2,6 +2,7 @@ import Button from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import logoImg from "../../public/logo.svg";
 import styles from "../styles/home.module.scss";
 
@@ -22,7 +23,9 @@ export default function Home() {
             </Button>
           </form>
 
-          <a className={styles.text}>Não possui uma conta? Cadastre-se</a>
+          <Link href="/signup" className={styles.text}>
+            Não possui uma conta? Cadastre-se
+          </Link>
         </div>
       </div>
     </>
