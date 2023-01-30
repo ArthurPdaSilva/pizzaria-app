@@ -1,0 +1,40 @@
+.containerCenter, .login, .form{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerCenter, .login {
+    justify-content: center;
+    align-items: center;
+}
+
+.containerCenter {
+    min-height: 100vh;
+    background-color: var(--gray-900);
+}
+
+.login {
+    margin-top: 2rem;
+    width: 600px;
+    padding: 2rem 1.5rem;
+
+    form {
+        width: 90%;
+    }
+
+    form button {
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+.text {
+   margin-top: 1rem;
+   color: var(--white); 
+}
+
+@media (max-width: 620px) {
+    .login {
+        width: 90%;
+    }
+}

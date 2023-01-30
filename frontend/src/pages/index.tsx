@@ -1,3 +1,4 @@
+import Button from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import Head from "next/head";
 import Image from "next/image";
@@ -13,10 +14,15 @@ export default function Home() {
       <div className={styles.containerCenter}>
         <Image src={logoImg} alt="Logo Sujeito Pizzaria" />
         <div className={styles.login}>
-          <form>
+          <form className={styles.form}>
             <Input placeholder="Digite seu email" type="email" />
             <Input placeholder="Digite sua senha" type="password" />
+            <Button type="submit" loading={true}>
+              Acessar
+            </Button>
           </form>
+
+          <a className={styles.text}>Não possui uma conta? Cadastre-se</a>
         </div>
       </div>
     </>
