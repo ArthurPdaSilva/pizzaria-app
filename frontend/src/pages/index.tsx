@@ -17,12 +17,17 @@ export default function Home() {
   async function handleLogin(e: FormEvent) {
     e.preventDefault();
 
+    if (email === "" || password === "") return;
+
+    setLoading(true);
+
     const data = {
       email,
       password,
     };
 
     await signIn(data);
+    setLoading(false);
   }
 
   return (
@@ -46,7 +51,7 @@ export default function Home() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button type="submit" loading={false}>
+            <Button type="submit" loading={loading}>
               Acessar
             </Button>
           </form>
