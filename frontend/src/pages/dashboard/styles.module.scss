@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 720px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+
+    h1 {
+        color: var(--white);
+    }
+}
+
+.containerHeader {
+    display: flex;
+
+    button {
+        background-color: transparent;
+        border: 0;
+        margin-left: 1rem;
+    }
+}
+
+.listOrders {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+
+    section {
+        display: flex;
+        align-items: center;
+        background-color: var(--dark-900);
+        margin-bottom: 1rem;
+        border-radius: .3rem;
+
+        button {
+            display: flex;
+            align-items: center;
+            border: 0;
+            font-size: 1.2rem;
+            height: 60px;
+            color: var(--white);
+            background-color: transparent;
+        }
+    }
+}
+
+.tag {
+    width: 9px;
+    background-color: var(--green-900);
+    height: 60px;
+    border-radius: .3rem 0 0 .3rem;
+    margin-right: 1rem;
+}
