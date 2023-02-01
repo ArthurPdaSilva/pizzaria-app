@@ -15,7 +15,7 @@ class DetailOrderService {
                 order: true
             }
         })
-
+        console.log(orders, order_id)
         return orders;
     }
 }

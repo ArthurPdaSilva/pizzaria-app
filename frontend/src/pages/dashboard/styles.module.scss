@@ -35,11 +35,20 @@
         button {
             display: flex;
             align-items: center;
+            width: 100%;
             border: 0;
             font-size: 1.2rem;
             height: 60px;
             color: var(--white);
             background-color: transparent;
+        }
+    }
+}
+
+.anima {
+    &:hover {
+        svg {
+            animation: animate 1s infinite;
         }
     }
 }
@@ -50,4 +59,18 @@
     height: 60px;
     border-radius: .3rem 0 0 .3rem;
     margin-right: 1rem;
+}
+
+.empty {
+    font-size: 1.2rem;
+    color: var(--gray-100);
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
