@@ -1,9 +1,11 @@
 import Button from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { AuthContext } from "@/contexts/AuthContext";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import logoImg from "../../../public/logo.svg";
 import styles from "../../styles/home.module.scss";
 
@@ -12,13 +14,24 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { signUp } = useContext(AuthContext);
 
   async function handleSignUp(e: FormEvent) {
     e.preventDefault();
 
-    if (name === "" || email === "" || password === "") return;
+    if (name === "" || email === "" || password === "") {
+      toast.warn("Preencha todos os campos");
+      return;
+    }
     setLoading(true);
-    console.log(name, email, password);
+    const data = {
+      name,
+      email,
+      password,
+    };
+
+    await signUp(data);
+    setLoading(false);
   }
 
   return (
