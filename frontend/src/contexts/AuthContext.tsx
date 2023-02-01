@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useState } from "react";
-import { destroyCookie, setCookie } from "nookies";
+import { createContext, ReactNode, useState, useEffect } from "react";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 import Router from "next/router";
 import { api } from "@/pages/services/apiClient";
 import { idText } from "typescript";
@@ -50,6 +50,23 @@ export function signOut() {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<UserProps>({} as UserProps);
   const isAuthenticated = !!user;
+
+  useEffect(() => {
+    const { "@nextauth.token": token } = parseCookies();
+    if (token) {
+      api
+        .get("/me")
+        .then((r) => {
+          const { id, name, email } = r.data;
+          setUser({
+            id,
+            name,
+            email,
+          });
+        })
+        .catch(() => signOut());
+    }
+  }, []);
 
   async function signIn({ email, password }: SignInProps) {
     try {
